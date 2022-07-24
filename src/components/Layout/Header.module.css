@@ -1,0 +1,32 @@
+.header {
+    background-color: black;
+    color: beige;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    width: 70%;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    z-index: 10;
+    transition: color width 5s ease-in
+}
+
+.header :hover{
+    color: gold;
+    width: 100%;
+}
+
+.main-image {
+    width: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .main-image img {
+    width: 100%;
+    object-fit: cover;
+  }
