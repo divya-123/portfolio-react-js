@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
-import Card from './UI/Card';
+import Card from '../UI/Card';
 import classes from './ContactMe.module.css';
-import Modal from './UI/Modal';
+import Modal from '../UI/Modal';
 const ContactMe = (props) => {
     const [showModal, setShowModal] = useState(false);
     const [enteredName, setEnteredName] = useState('');
