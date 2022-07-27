@@ -20,18 +20,15 @@ const ContactMe = (props) => {
         console.log({enteredEmail});
         console.log({enteredMessage});
         setShowModal(true);
-        alert('Thankyou !!');
-        {showModal ? <Modal title='Thankyou!!' 
-                            message='Thankyou for contacting me!! Will revert soon!!' 
-                            onConfirm={confirmHandler}/>
-                    : setShowModal(false)
-                     };
         setEnteredName('');
         setEnteredEmail('');
         setEnteredMessage('');
     };
     return(
         <Fragment>
+            {showModal && <Modal title='Thankyou!!' 
+                            message='Thankyou for contacting me!! Will revert soon!!' 
+                            onConfirm={confirmHandler}/>};
         {/* <div className={classes.header}>
             <h2>Contact Me</h2>
         </div> */}

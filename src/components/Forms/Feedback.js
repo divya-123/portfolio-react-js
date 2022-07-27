@@ -1,29 +1,67 @@
-import React , { Fragment , useReducer} from 'react';
+import React , { Fragment , useState, useReducer} from 'react';
 import Card from '../UI/Card';
 import classes from './Feedback.module.css';
 
-const feedbackReducer = (state, action) => {
-    if(action.type==='USER_INPUT') 
-        return {
-            value: action.val, isValid: state.val.trim()!==''
-        };
-
-    return {
-        value: '' , isValid: false
-    };
+const reducer = (state, action) => {
+    switch (action.type){
+        case 'POSITIVES_INPUT' : return {...state, enteredPositives:{value: action.val, } }
+        case 'NEGATIVES_INPUT' : return {...state, enteredNegatives: action.val}
+        case 'SUGGESTIONS_INPUT' : return {...state, enteredSuggestions: action.val}
+        case 'NAME_INPUT' : return {...state, enteredName: action.val}
+        case 'PHONENO_INPUT' : return {...state, enteredPhoneNo: action.val}  
+        }
 };
+
+
 const Feedback = (props) =>{
 
-    const [feedbackState, dispatchFeedback] = useReducer(feedbackReducer, {
-        value: '',
-        isValid: null
+    const [state, dispatch]= useReducer(reducer, {
+        enteredPositives: '',
+        enteredNegatives: '',
+        enteredSuggestions: '',
+        enteredName: '',
+        enteredPhoneNo: ''
     });
 
+    // const [enteredPositives, setEnteredPositives] = useState('');
+    // const [enteredNegatives, setEnteredNegatives] = useState('');
+    // const [enteredSuggestions, setEnteredSuggestions] = useState('');
+    // const [enteredName, setEnteredName] = useState('');
+    // const [enteredPhoneNo, setEnteredPhoneNo] = useState('');
+
+   
     const feedbackSubmitHandler =(event)=>{
         event.preventDefault();
+        console.log(state.enteredPositives);
+        console.log(state.enteredNegatives);
+        console.log(state.enteredSuggestions);
+        console.log(state.enteredName);
+        console.log(state.enteredPhoneNo);
+    };
 
-        dispatchFeedback({type: 'USER_INPUT', val: event.target.value});
+    const inputChangeHandler = (event, field) =>{
+        dispatch({type: `${field}_INPUT`, val: event.target.value})
+    };
 
+    const positivesChangeHandler = (event)=>
+    {
+        dispatch({type: 'POSITIVES_INPUT', val: event.target.value});
+    };
+    const negativesChangeHandler = (event)=>
+    {
+        dispatch({type: 'NEGATIVES_INPUT', val: event.target.value});
+    };
+    const suggestionsChangeHandler = (event)=>
+    {
+        dispatch({type: 'SUGGESTIONS_INPUT', val: event.target.value});
+    };
+    const nameChangeHandler = (event)=>
+    {
+        dispatch({type: 'NAME_INPUT', val: event.target.value});
+    };
+    const phoneNoChangeHandler = (event)=>
+    {
+        dispatch({type: 'PHONENO_INPUT', val: event.target.value});
     };
     return (
         <Card>
@@ -33,23 +71,39 @@ const Feedback = (props) =>{
             <form onSubmit={feedbackSubmitHandler} className={classes.form}>
                 <div className={classes.control}>
                     <label htmlFor='positives'>Things you liked:</label>
-                    <input type='text' id='positives' />
+                    <input type='text' 
+                        id='positives' 
+                        value={state.enteredPositives}
+                        onChange={positivesChangeHandler}/>
                 </div>
                 <div className={classes.control}>
                     <label htmlFor='negatives'>Things you did not like:</label>
-                    <input type='text' id='negatives' />
+                    <input type='text' 
+                            id='negatives' 
+                            value={state.enteredNegatives}
+                            onChange={negativesChangeHandler}/>
                 </div>
                 <div className={classes.control}>
                     <label htmlFor='suggestions'>Your suggestions:</label>
-                    <input type='text' id='suggestions' />
+                    <input type='text' 
+                            id='suggestions' 
+                            value={state.enteredSuggestions}
+                            onChange={suggestionsChangeHandler}
+                            />
                 </div>
                 <div className={classes.control}>
                     <label htmlFor='name'>Your name:</label>
-                    <input type='text' id='name' />
+                    <input type='text' 
+                            id='name' 
+                            value={state.enteredName}
+                            onChange={nameChangeHandler}/>
                 </div>
                 <div className={classes.control}>
                     <label htmlFor='phoneNo'>Your contact number:</label>
-                    <input type='number' id='phoneNo' />
+                    <input type='number' 
+                            id='phoneNo' 
+                            value={state.enteredPhoneNo}
+                            onChange={phoneNoChangeHandler}/>
                 </div>
                 <div className={classes.actions}>
                     <button>Submit Feedback</button>

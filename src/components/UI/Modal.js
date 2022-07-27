@@ -4,8 +4,9 @@ import classes from './Modal.module.css';
 const Modal = (props) =>{
     return(
         <div>
-            <div className={classes.backdrop} />
-            <Card className={classes.modal}>
+            <div className={classes.backdrop} onClick={props.onConfirm}>
+            <Card className={classes.modal} >
+            
             <header className={classes.header}>
                 <h2>{props.title}</h2>
             </header>
@@ -16,6 +17,8 @@ const Modal = (props) =>{
                 <button onClick={props.onConfirm}>Okay</button>
             </footer>
             </Card>
+            </div>
+           
         </div>
     );
 };
