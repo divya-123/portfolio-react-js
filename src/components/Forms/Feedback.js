@@ -4,7 +4,7 @@ import classes from './Feedback.module.css';
 
 const reducer = (state, action) => {
     switch (action.type){
-        case 'POSITIVES_INPUT' : return {...state, enteredPositives:{value: action.val, } }
+        case 'POSITIVES_INPUT' : return {...state, enteredPositives: action.val }
         case 'NEGATIVES_INPUT' : return {...state, enteredNegatives: action.val}
         case 'SUGGESTIONS_INPUT' : return {...state, enteredSuggestions: action.val}
         case 'NAME_INPUT' : return {...state, enteredName: action.val}
@@ -39,30 +39,10 @@ const Feedback = (props) =>{
         console.log(state.enteredPhoneNo);
     };
 
-    const inputChangeHandler = (event, field) =>{
-        dispatch({type: `${field}_INPUT`, val: event.target.value})
-    };
+    const inputChangeHandler = (event) => dispatch({type: event.target.name, 
+                                                    val: event.target.value});
 
-    const positivesChangeHandler = (event)=>
-    {
-        dispatch({type: 'POSITIVES_INPUT', val: event.target.value});
-    };
-    const negativesChangeHandler = (event)=>
-    {
-        dispatch({type: 'NEGATIVES_INPUT', val: event.target.value});
-    };
-    const suggestionsChangeHandler = (event)=>
-    {
-        dispatch({type: 'SUGGESTIONS_INPUT', val: event.target.value});
-    };
-    const nameChangeHandler = (event)=>
-    {
-        dispatch({type: 'NAME_INPUT', val: event.target.value});
-    };
-    const phoneNoChangeHandler = (event)=>
-    {
-        dispatch({type: 'PHONENO_INPUT', val: event.target.value});
-    };
+
     return (
         <Card>
             <div>
@@ -74,21 +54,24 @@ const Feedback = (props) =>{
                     <input type='text' 
                         id='positives' 
                         value={state.enteredPositives}
-                        onChange={positivesChangeHandler}/>
+                        name = 'POSITIVES_INPUT'
+                        onChange={inputChangeHandler}/>
                 </div>
                 <div className={classes.control}>
                     <label htmlFor='negatives'>Things you did not like:</label>
                     <input type='text' 
                             id='negatives' 
                             value={state.enteredNegatives}
-                            onChange={negativesChangeHandler}/>
+                            name = 'NEGATIVES_INPUT'
+                        onChange={inputChangeHandler}/>
                 </div>
                 <div className={classes.control}>
                     <label htmlFor='suggestions'>Your suggestions:</label>
                     <input type='text' 
                             id='suggestions' 
                             value={state.enteredSuggestions}
-                            onChange={suggestionsChangeHandler}
+                            name = 'SUGGESTIONS_INPUT'
+                        onChange={inputChangeHandler}
                             />
                 </div>
                 <div className={classes.control}>
@@ -96,14 +79,16 @@ const Feedback = (props) =>{
                     <input type='text' 
                             id='name' 
                             value={state.enteredName}
-                            onChange={nameChangeHandler}/>
+                            name = 'NAME_INPUT'
+                        onChange={inputChangeHandler}/>
                 </div>
                 <div className={classes.control}>
                     <label htmlFor='phoneNo'>Your contact number:</label>
                     <input type='number' 
                             id='phoneNo' 
                             value={state.enteredPhoneNo}
-                            onChange={phoneNoChangeHandler}/>
+                            name = 'PHONENO_INPUT'
+                        onChange={inputChangeHandler}/>
                 </div>
                 <div className={classes.actions}>
                     <button>Submit Feedback</button>

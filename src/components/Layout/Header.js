@@ -5,6 +5,8 @@ import ContactMe from '../Forms/ContactMe';
 import Feedback from '../Forms/Feedback';
 
 const Header = (props)=>{
+    const [isMounted, setIsMounted] = useState(false);
+    
     const [showContactMe, setShowContactMe] = useState(false);
     const [showFeedback, setShowFeedback] = useState(false);
 
