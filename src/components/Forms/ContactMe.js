@@ -7,6 +7,9 @@ const ContactMe = (props) => {
     const [enteredName, setEnteredName] = useState('');
     const [enteredEmail, setEnteredEmail] = useState('');
     const [enteredMessage, setEnteredMessage] = useState('');
+    const [animate, setAnimate] = useState(false);
+
+    const handleClick = () => setAnimate(!animate);
 
     const confirmHandler = (event) =>{
         event.preventDefault();
@@ -59,6 +62,7 @@ const ContactMe = (props) => {
             </div>
             <div className={classes.actions}>
             <button>Submit</button>
+            <button onClick={handleClick} className={classes.animate}>Animate Me</button>
             </div>
         </form>
         </Card>

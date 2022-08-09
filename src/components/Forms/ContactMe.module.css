@@ -54,3 +54,12 @@
     background-color: #66a2ce;
     border-color: #66a2ce;
   }
+
+  .animate {
+    transition: transform .35s ease-in-out;
+  }
+  
+  .animate.grow {
+    transform: scale(1.5);
+  }
+  
