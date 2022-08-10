@@ -1,6 +1,8 @@
 import React from "react";
 import { FaTerminal, FaUsers } from "react-icons/fa";
 import { testimonials } from "./data";
+// import image from './testimonial_1.jpg';
+// import image1 from './testimonial_2.jpg';
 
 const Testimonials = () => {
     return(
@@ -8,7 +10,7 @@ const Testimonials = () => {
       <div className="container px-5 py-10 mx-auto text-center">
         <FaUsers className="w-10 inline-block mb-4" />
         <h1 className="sm:text-4xl text-3xl font-medium title-font text-white mb-12">
-          Client Testimonials
+          Testimonials
         </h1>
         <div className="flex flex-wrap m-4">
           {testimonials.map((testimonial) => (

@@ -1,3 +1,5 @@
+import image from './testimonial_1.jpg';
+import image1 from './testimonial_2.jpg';
 export const projects = [
     {
         
@@ -39,13 +41,13 @@ export const projects = [
   export const testimonials = [
     {
         quote: "Very creative and hardworking!!",
-        image: "./testimonial_1.jpg",
+        image: `${image}`,
         name: "Anurag Srivastava",
         company: "TCS"
     },
     {
         quote: "Very good performing person!!",
-        image: "./testimonial_2.jpg",
+        image: `${image1}`,
         name: "Brij Vaid",
         company: "IVP"
     }
