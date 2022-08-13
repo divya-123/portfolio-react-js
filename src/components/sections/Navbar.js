@@ -20,7 +20,14 @@ const Navbar = () => {
           <a href="#testimonials" className="mr-5 hover:text-white">
             Testimonials
           </a>
+          <input type="checkbox" class="checkbox" id="checkbox" />
+        <label for="checkbox" class="label">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <div class='ball' />
+        </label>
         </nav>
+        
         <a
           href="#contact"
           className="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0">

@@ -1,8 +1,7 @@
 import image from './testimonial_1.jpg';
 import image1 from './testimonial_2.jpg';
 export const projects = [
-    {
-        
+    {        
       title: "Food Order App",
       subtitle: "e commerce",
       description:
@@ -36,7 +35,7 @@ export const projects = [
     },
   ];
 
-  export const skills = ['C', 'JavaScript', 'React', 'Node.js', 'TypeScript'];
+  export const skills = ['JavaScript', 'React', 'Node.js', 'TypeScript'];
 
   export const testimonials = [
     {
